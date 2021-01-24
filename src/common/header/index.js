@@ -15,8 +15,8 @@ const Head = props => {
 }
 const mapStateToProps = (state) => {
     return {
-        focused: state.focused,
-        hello: state.hello
+        focused: state.header.focused,
+        hello: state.header.hello
     }
 }
 const mapDispathToProps = (dispatch) => {

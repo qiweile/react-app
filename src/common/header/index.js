@@ -1,5 +1,22 @@
+import {actionCreators} from './store'
 import { Title, Log } from './style'
 import {connect} from 'react-redux'
+const mapStateToProps = (state) => {
+    return {
+        focused: state.header.focused,
+        hello: state.header.hello
+    }
+}
+const mapDispathToProps = (dispatch) => {
+    return {
+        submitBtn () {
+            dispatch(actionCreators.searchFocus())
+        },
+        submitBtn1 () {
+            dispatch(actionCreators.searchBlur())
+        }
+    }
+}
 const Head = props => {
     console.log(props)
     return (
@@ -12,27 +29,5 @@ const Head = props => {
             <Log href='/' />
         </Title>
     )
-}
-const mapStateToProps = (state) => {
-    return {
-        focused: state.header.focused,
-        hello: state.header.hello
-    }
-}
-const mapDispathToProps = (dispatch) => {
-    return {
-        submitBtn () {
-            const action = {
-                type: 'search_focus',
-            }
-            dispatch(action)
-        },
-        submitBtn1 () {
-            const action = {
-                type: 'search_focus1'
-            }
-            dispatch(action)
-        }
-    }
 }
 export default connect(mapStateToProps, mapDispathToProps)(Head)

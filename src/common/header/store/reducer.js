@@ -1,15 +1,16 @@
+import * as actionTypes from './constants'
 const defaultState = {
     focused: false,
     hello: '你好啊！小米'
 }
-export default (state = defaultState, action) => {
-    if (action.type === 'search_focus') {
+const reducer = (state = defaultState, action) => {
+    if (action.type === actionTypes.SEARCH_FOCUS) {
         return {
             ...state,
             focused: true
         }
     }
-    if (action.type === 'search_focus1') {
+    if (action.type === actionTypes.SEARCH_BLUR) {
         return {
             ...state,
             focused: false
@@ -17,3 +18,4 @@ export default (state = defaultState, action) => {
     }
     return state
 }
+export default reducer

@@ -3,8 +3,9 @@ import { Title, Log } from './style'
 import {connect} from 'react-redux'
 const mapStateToProps = (state) => {
     return {
-        focused: state.header.focused,
-        hello: state.header.hello
+        // 使用了immutable 管理 state 数据就要用 get() 方法拿数据
+        focused: state.header.get('focused'),
+        hello: state.header.get('hello')
     }
 }
 const mapDispathToProps = (dispatch) => {

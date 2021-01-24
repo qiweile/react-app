@@ -3,14 +3,16 @@ import {BrowserRouter,Route} from 'react-router-dom'
 import store from './store'
 import { Globalstyle } from './style'
 import Header from './common/header'
+import Home from './pages/home'
+import Detail from './pages/detail'
 function App() {
     return (
         <Provider store={store}>
             <Globalstyle />
             <Header />
             <BrowserRouter>
-                <Route path="/" exact render={() => <div>首页</div>}></Route>
-                <Route path="/detail" exact render={() => <div>详情页</div>}></Route>
+                <Route path="/" exact component={Home}></Route>
+                <Route path="/detail" exact component={Detail}></Route>
             </BrowserRouter>
         </Provider>
     );
